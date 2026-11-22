@@ -47,8 +47,8 @@ perform_cleanup() {
         sed -i '/drivers\/kernelsu\/Kconfig/d' "$DRIVER_KCONFIG"
         echo "[-] Kconfig reverted."
     fi
-    if [ -d "$GKI_ROOT/FinaSU" ] && [ "$FINASU_KEEP_SOURCE" != "1" ]; then
-        rm -rf "$GKI_ROOT/FinaSU"
+    if [ -d "$GKI_ROOT/KernelSU" ] && [ "$FINASU_KEEP_SOURCE" != "1" ]; then
+        rm -rf "$GKI_ROOT/KernelSU"
         echo "[-] FinaSU directory deleted."
     fi
 }
@@ -59,7 +59,7 @@ setup_finasu() {
     if [ -n "$FINASU_DIR" ]; then
         SRC_DIR="$FINASU_DIR"
     else
-        SRC_DIR="$GKI_ROOT/FinaSU"
+        SRC_DIR="$GKI_ROOT/KernelSU"
         if [ ! -d "$SRC_DIR" ]; then
             git clone "$FINASU_URL" "$SRC_DIR"
         fi
