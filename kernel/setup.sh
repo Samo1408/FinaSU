@@ -53,7 +53,7 @@ perform_cleanup() {
     fi
 }
 
-setup_kernelsu() {
+setup_finasu() {
     ref="${1:-$FINASU_REF}"
 
     if [ -n "$FINASU_DIR" ]; then
@@ -99,7 +99,7 @@ setup_kernelsu() {
 
 if [ "$#" -eq 0 ]; then
     initialize_variables
-    setup_kernelsu
+    setup_finasu
 else
     REF=""
     while [ "$#" -gt 0 ]; do
@@ -133,5 +133,5 @@ else
         shift
     done
     initialize_variables
-    setup_kernelsu "$REF"
+    setup_finasu "$REF"
 fi
